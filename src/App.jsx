@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react'
 
-const WA = '27600000000' // replace with real number
+const WA = '27684840123' // replace with real number
 const SAID_URL = 'https://github.com/dexter187gold/said'
 
 const services = [
@@ -287,7 +287,7 @@ export default function App() {
         <section id="contact">
           <div className="container">
             <h2>Get help today</h2>
-            <p className="section-lead">We reply on WhatsApp. Replace the number in the site config with your live line.</p>
+            <p className="section-lead">WhatsApp 068 484 0123 · pcrepairdex@gmail.com</p>
             <div className="contact-grid">
               <form className="contact form panel" onSubmit={onSubmit}>
                 <label>
@@ -340,8 +340,12 @@ export default function App() {
                 <div className="contact-item">
                   <b>WhatsApp</b>
                   <a href={waHref} target="_blank" rel="noreferrer">
-                    Chat with PC REPAIR DEX
+                    068 484 0123
                   </a>
+                </div>
+                <div className="contact-item">
+                  <b>Email</b>
+                  <a href="mailto:pcrepairdex@gmail.com">pcrepairdex@gmail.com</a>
                 </div>
                 <div className="contact-item">
                   <b>Service modes</b>
