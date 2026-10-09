@@ -75,10 +75,10 @@ function wa(text) {
 function BrandLockup({ onClick, compact }) {
   return (
     <button type="button" className="brand-lockup" onClick={onClick} aria-label="PC REPAIRDEX home">
-      <img className="brand-mark" src="/dex-mark.svg" alt="" width={48} height={48} />
+      <img className="brand-mark" src="/logo-mark.svg" alt="" width={48} height={48} />
       <span className="brand-text">
         <span className="brand-name">PC REPAIR<em>DEX</em></span>
-        {!compact && <span className="brand-tag">It&apos;s more than just repairs</span>}
+        {!compact && <span className="brand-tag">It's more than just repairs</span>}
       </span>
     </button>
   )
@@ -345,7 +345,7 @@ export default function App() {
             <section className="section">
               <div className="section-head">
                 <h2>If you run a repair business too</h2>
-                <p>SA Invoice Desk &amp; Pro — paperwork that matches field work.</p>
+                <p>SA Invoice Desk & Pro — paperwork that matches field work.</p>
               </div>
               <div className="product-banner">
                 <article className="product-card">
@@ -380,25 +380,15 @@ export default function App() {
             <p className="lead">Each line includes what it means for you, not only what we do on the bench.</p>
             <div className="tabs" role="tablist">
               {SERVICES.map((g) => (
-                <button key={g.group} type="button" role="tab" aria-selected={serviceTab === g.group} className={`tab${serviceTab === g.group ? ' on' : ''}`} onClick={() => setServiceTab(g.group)}>
-                  {g.group}
-                </button>
+                <button key={g.group} type="button" className={serviceTab === g.group ? 'on' : ''} onClick={() => setServiceTab(g.group)}>{g.group}</button>
               ))}
             </div>
-            <div className="grid-3">
+            <div className="grid-2">
               {activeGroup.items.map((i) => (
                 <article key={i.title} className="card">
                   <h3>{i.title}</h3>
                   <p>{i.text}</p>
-                  <p style={{ marginTop: '0.65rem', color: 'var(--sky)', fontSize: '0.92rem' }}><strong>For you:</strong> {i.client}</p>
-                  <button
-                    type="button"
-                    className="btn btn-ghost btn-sm"
-                    style={{ marginTop: '0.75rem' }}
-                    onClick={() => go('book', { service: i.title, device: activeGroup.group === 'Phones & mobile' ? 'Smartphone' : 'Laptop / PC', hint: i.client })}
-                  >
-                    Book this
-                  </button>
+                  <p className="dim" style={{ marginTop: '0.5rem' }}><strong>For you:</strong> {i.client}</p>
                 </article>
               ))}
             </div>
@@ -408,87 +398,61 @@ export default function App() {
 
         {page === 'shop' && (
           <>
-            <p className="eyebrow">Catalog</p>
-            <h1>Shop</h1>
+            <p className="eyebrow">Shop</p>
+            <h1>Coming soon</h1>
+            <p className="lead">Parts and accessories will land here. For a part right now, WhatsApp the model number.</p>
             <div className="coming">
-              <h2>Coming soon</h2>
-              <p>We are not listing products yet. When the catalog opens, you will see parts and accessories with clear enquiry paths.</p>
-              <a className="btn btn-wa" href={wa('Hi — I need a part quote. Model:')} target="_blank" rel="noreferrer">Ask for a part on WhatsApp</a>
+              <h2>Shop status</h2>
+              <p>We are preparing the catalogue. Message us the exact model and we will source or quote.</p>
+              <a className="btn btn-wa" href={wa('Hi — I need a part / accessory quote')} target="_blank" rel="noreferrer">WhatsApp for parts</a>
             </div>
+            <Cta go={go} />
           </>
         )}
 
         {page === 'pricing' && (
           <>
-            <p className="eyebrow">Your options</p>
-            <h1>Pricing models</h1>
-            <p className="lead">Tap a model to select it — then book with that preference in mind. Exact rands depend on your device.</p>
+            <p className="eyebrow">Pricing</p>
+            <h1>Three models — pick the one that fits</h1>
+            <p className="lead">You choose after we understand the job. No silent extras.</p>
             <div className="grid-3">
               {PRICING.map((p) => (
-                <article
-                  key={p.title}
-                  className={`card price-card${priceSel === p.title ? ' selected' : ''}`}
-                  onClick={() => setPriceSel(p.title)}
-                  onKeyDown={(e) => e.key === 'Enter' && setPriceSel(p.title)}
-                  role="button"
-                  tabIndex={0}
-                >
+                <article key={p.title} className={`card${priceSel === p.title ? ' active' : ''}`} onClick={() => setPriceSel(p.title)} style={{ cursor: 'pointer' }}>
                   <h3>{p.title}</h3>
                   <p>{p.text}</p>
-                  <p style={{ marginTop: '0.55rem', color: 'var(--sky)', fontSize: '0.9rem' }}><strong>For you:</strong> {p.client}</p>
+                  <p className="dim" style={{ marginTop: '0.5rem' }}><strong>For you:</strong> {p.client}</p>
                 </article>
               ))}
             </div>
-            <p className="dim" style={{ marginTop: '1rem' }}>Selected: <strong style={{ color: 'var(--text)' }}>{priceSel}</strong> — mention it when you book.</p>
-            <button type="button" className="btn btn-primary" style={{ marginTop: '0.75rem' }} onClick={() => go('book', { hint: `Client prefers ${priceSel} pricing model.` })}>
-              Book with {priceSel}
-            </button>
             <Cta go={go} />
           </>
         )}
 
         {page === 'book' && (
           <>
-            <p className="eyebrow">Client intake</p>
-            <h1>Book</h1>
-            <p className="lead">This is the only page with the full form — so your details stay in one place and we both save time.</p>
-            <div className="grid-2">
-              <BookingForm preset={bookPreset} />
-              <div className="contact-list">
-                <div className="contact-item">
-                  <strong>Prefer to type less?</strong>
-                  <a href={wa()} target="_blank" rel="noreferrer">Open WhatsApp {PHONE}</a>
-                </div>
-                <div className="contact-item">
-                  <strong>Prefer a call?</strong>
-                  <a href={TEL}>{PHONE}</a>
-                </div>
-                <div className="contact-item">
-                  <strong>What you get after sending</strong>
-                  <span className="muted">A reply with the recommended path (remote / on-site / bench) and pricing model.</span>
-                </div>
-              </div>
-            </div>
+            <p className="eyebrow">Book</p>
+            <h1>Book as a client</h1>
+            <p className="lead">One form → one WhatsApp message with everything filled. We quote faster.</p>
+            <BookingForm preset={bookPreset} />
           </>
         )}
 
         {page === 'software' && (
           <>
-            <p className="eyebrow">For business owners</p>
-            <h1>SA Invoice Desk &amp; Pro</h1>
-            <p className="lead">If you are a client with a broken laptop, use Book. If you run a service business, these products help you quote and invoice cleanly.</p>
+            <p className="eyebrow">SA Invoice</p>
+            <h1>SA Invoice Desk & Pro</h1>
+            <p className="lead">Paperwork that matches field work — for repair shops and service businesses.</p>
             <div className="product-banner">
               <article className="product-card">
                 <span className="badge">SA Invoice Desk</span>
                 <h3>Desk</h3>
-                <p className="muted">Day-to-day quotes and invoices for solo technicians and small counters.</p>
-                <a className="btn btn-primary" style={{ marginTop: '0.85rem' }} href={SAID} target="_blank" rel="noreferrer">Open product stack</a>
+                <p className="muted">Quotes and invoices for solo techs and small counters.</p>
               </article>
               <article className="product-card">
                 <span className="badge">SA Invoice Pro</span>
                 <h3>Pro</h3>
-                <p className="muted">Tickets, field workflows and advanced documents when you outgrow a basic invoice pad.</p>
-                <a className="btn btn-ghost" style={{ marginTop: '0.85rem' }} href={SAID} target="_blank" rel="noreferrer">Explore Pro</a>
+                <p className="muted">Tickets, field jobs and richer document workflows.</p>
+                <a className="btn btn-ghost btn-sm" style={{ marginTop: '0.75rem' }} href={SAID} target="_blank" rel="noreferrer">View stack on GitHub</a>
               </article>
             </div>
             <Cta go={go} />
@@ -497,26 +461,11 @@ export default function App() {
 
         {page === 'about' && (
           <>
-            <p className="eyebrow">Company</p>
-            <h1>About <span style={{ color: 'var(--gold, #e0b33a)' }}>PC REPAIRDEX</span></h1>
-            <p className="lead">
-              A professional device and IT service company — computers, phones, electronics — with a client-first booking
-              path and optional SA Invoice products for shops.
-            </p>
-            <div className="grid-2">
-              <article className="card">
-                <h3>What clients can expect</h3>
-                <ul>
-                  <li>Plain language before payment decisions</li>
-                  <li>Parts approval before install</li>
-                  <li>Honest limits on FRP / MDM work</li>
-                  <li>WhatsApp as the shared job thread</li>
-                </ul>
-              </article>
-              <article className="card">
-                <h3>Company contact</h3>
-                <p className="muted">WhatsApp {PHONE}<br />Email {EMAIL}</p>
-              </article>
+            <p className="eyebrow">About</p>
+            <h1>PC REPAIRDEX</h1>
+            <p className="lead">It's more than just repairs. Clear options, quotes you approve, and WhatsApp updates.</p>
+            <div className="card">
+              <p>We fix PCs, laptops, phones and electronics. Remote or on-site. You always know the path and the price model before work starts.</p>
             </div>
             <Cta go={go} />
           </>
@@ -524,15 +473,14 @@ export default function App() {
 
         {page === 'faq' && (
           <>
-            <p className="eyebrow">Before you book</p>
-            <h1>FAQ</h1>
-            <p className="lead">Answers from the client side — what you need, what we will not do silently.</p>
-            <div className="faq">
+            <p className="eyebrow">FAQ</p>
+            <h1>Questions clients ask</h1>
+            <div className="faq-list">
               {FAQS.map((f) => (
-                <details key={f.q}>
-                  <summary>{f.q}</summary>
-                  <p>{f.a}</p>
-                </details>
+                <article key={f.q} className="card">
+                  <h3>{f.q}</h3>
+                  <p className="dim">{f.a}</p>
+                </article>
               ))}
             </div>
             <Cta go={go} />
@@ -541,67 +489,25 @@ export default function App() {
 
         {page === 'contact' && (
           <>
-            <p className="eyebrow">Reach the company</p>
-            <h1>Contact</h1>
-            <p className="lead">Direct channels only. Bookings use the Book page so your job details stay structured.</p>
-            <div className="contact-list" style={{ maxWidth: '28rem' }}>
-              <div className="contact-item">
-                <strong>WhatsApp</strong>
-                <a href={wa()} target="_blank" rel="noreferrer">{PHONE}</a>
-              </div>
-              <div className="contact-item">
-                <strong>Call</strong>
-                <a href={TEL}>{PHONE}</a>
-              </div>
-              <div className="contact-item">
-                <strong>Email</strong>
-                <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
-              </div>
-              <div className="contact-item">
-                <strong>Start a job request</strong>
-                <button type="button" className="btn btn-primary btn-sm" onClick={() => go('book')}>Open client booking form</button>
-              </div>
+            <p className="eyebrow">Contact</p>
+            <h1>Talk to us</h1>
+            <p className="lead">WhatsApp is the fastest channel. Same number for booking and status.</p>
+            <div className="card">
+              <p><strong>WhatsApp / Phone:</strong> {PHONE}</p>
+              <p><strong>Email:</strong> {EMAIL}</p>
+              <a className="btn btn-wa" href={wa()} target="_blank" rel="noreferrer" style={{ marginTop: '1rem' }}>Open WhatsApp</a>
             </div>
+            <Cta go={go} />
           </>
         )}
       </main>
 
       <footer className="footer">
-        <div className="wrap footer-grid">
+        <div className="wrap footer-inner">
           <div>
-            <div className="footer-brand">
-              <img src="/dex-mark.svg" alt="" width="36" height="36" />
-              <div>
-                <strong>PC REPAIRDEX</strong>
-                <div className="dim" style={{ fontSize: '0.75rem' }}>It&apos;s more than just repairs</div>
-              </div>
-            </div>
-            <p>Client-first repair and IT. Shop coming soon. SA Invoice for business owners.</p>
-            <p style={{ marginTop: '0.45rem' }}>{PHONE}<br />{EMAIL}</p>
+            <img src="/logo-mark.svg" alt="" width="36" height="36" />
+            <span className="brand-name">PC REPAIR<em>DEX</em></span>
           </div>
-          <div>
-            <h4>Clients</h4>
-            <button type="button" onClick={() => go('services')}>Services</button>
-            <button type="button" onClick={() => go('pricing')}>Pricing</button>
-            <button type="button" onClick={() => go('book')}>Book</button>
-            <button type="button" onClick={() => go('faq')}>FAQ</button>
-          </div>
-          <div>
-            <h4>Company</h4>
-            <button type="button" onClick={() => go('about')}>About</button>
-            <button type="button" onClick={() => go('shop')}>Shop</button>
-            <button type="button" onClick={() => go('software')}>SA Invoice</button>
-            <button type="button" onClick={() => go('contact')}>Contact</button>
-          </div>
-          <div>
-            <h4>Chat</h4>
-            <a href={wa()} target="_blank" rel="noreferrer">WhatsApp</a>
-            <a href={TEL}>Call</a>
-            <a href={`mailto:${EMAIL}`}>Email</a>
-          </div>
-        </div>
-        <div className="wrap footer-bottom">
-          <span>© {new Date().getFullYear()} PC REPAIRDEX</span>
           <span>{PHONE} · {EMAIL}</span>
         </div>
       </footer>
