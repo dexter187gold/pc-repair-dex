@@ -1,7 +1,9 @@
 import { useMemo, useState } from 'react'
 
-const WA = '27684840123' // replace with real number
+const WA = '27684840123' // 068 484 0123
 const SAID_URL = 'https://github.com/dexter187gold/said'
+const EMAIL = 'pcrepairdex@gmail.com'
+const PHONE_DISPLAY = '068 484 0123'
 
 const services = [
   {
@@ -345,7 +347,7 @@ export default function App() {
                 </div>
                 <div className="contact-item">
                   <b>Email</b>
-                  <a href="mailto:pcrepairdex@gmail.com">pcrepairdex@gmail.com</a>
+                  <a href={`mailto:${EMAIL}`}>pcrepairdex@gmail.com</a>
                 </div>
                 <div className="contact-item">
                   <b>Service modes</b>

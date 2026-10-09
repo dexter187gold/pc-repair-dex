@@ -12,6 +12,8 @@ Static site — no server required. Fast CDN, free SSL, GitHub integration.
 2. Cloudflare → **Workers & Pages** → **Create** → connect the repo.
 3. **Build command:** leave empty (or `echo static`)
 4. **Output directory:** `dist`
+3. **Build command:** `npm run build` or `bun run build`
+4. Do **not** use a `_redirects` file — SPA fallback is set in `wrangler.jsonc`
 5. Deploy.
 
 Or upload the `dist/` folder with Wrangler:
