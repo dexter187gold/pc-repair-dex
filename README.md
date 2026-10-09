@@ -1,41 +1,26 @@
-# PC REPAIR DEX
+# PC REPAIR DEX (website)
 
-Public website for **PC REPAIR DEX** — modern IT support & PC repair (remote · on-site · COD quotes).
+Public multi-page site for **PC REPAIR DEX**.
 
-Linked product: [SAID](https://github.com/dexter187gold/said).
+- WhatsApp: **068 484 0123**
+- Email: **pcrepairdex@gmail.com**
+- Mythos roadmap: **website pages only** — see `docs/MYTHOS_WEBSITE_ROADMAP.md`
+- **Not** an invoicing app (that stays in [SAID](https://github.com/dexter187gold/said))
 
-## Deploy: Cloudflare Pages (recommended)
+## Pages
 
-Static site — no server required. Fast CDN, free SSL, GitHub integration.
+Home · Services · Pricing · Process · About · FAQ · Book · Roadmap · Contact
 
-1. Push this repo to GitHub (`pc-repair-dex` or `pegasus`).
-2. Cloudflare → **Workers & Pages** → **Create** → connect the repo.
-3. **Build command:** leave empty (or `echo static`)
-4. **Output directory:** `dist`
-3. **Build command:** `npm run build` or `bun run build`
-4. Do **not** use a `_redirects` file — SPA fallback is set in `wrangler.jsonc`
-5. Deploy.
+## Deploy (Cloudflare)
 
-Or upload the `dist/` folder with Wrangler:
+- Build: `npm run build` or `bun run build`
+- Output: `dist`
+- SPA: `wrangler.jsonc` → `assets.not_found_handling: single-page-application`
+- **Do not** add `/* /index.html` in `_redirects` (causes infinite loop)
+
+## Local
 
 ```bash
-npx wrangler pages deploy dist --project-name=pc-repair-dex
+npm install
+npm run dev
 ```
-
-### Why not WordPress / Render for this site?
-
-| Platform | Fit |
-|----------|-----|
-| **Cloudflare Pages** | Best for this marketing site (static, global, free) |
-| **Render** | Better for **SAID** backend (Node API) |
-| **WordPress** | Heavier; not needed for a 2026 brochure + WhatsApp funnel |
-
-## Configure
-
-Edit `dist/index.html` — set `const WA = '27XXXXXXXXX'` to your WhatsApp number.
-
-## Source
-
-- `dist/` — production static files (serve this)
-- `src/` — optional Vite/React source if you extend later
-- Design: dark tech 2026, hourly/flat/ad-hoc pricing, SAID link-in
