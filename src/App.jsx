@@ -4,203 +4,380 @@ const WA = '27684840123'
 const EMAIL = 'pcrepairdex@gmail.com'
 const PHONE = '068 484 0123'
 
-const PAGES = [
+const NAV = [
   { id: 'home', label: 'Home' },
   { id: 'services', label: 'Services' },
   { id: 'pricing', label: 'Pricing' },
-  { id: 'process', label: 'Process' },
+  { id: 'process', label: 'How it works' },
   { id: 'about', label: 'About' },
+  { id: 'reviews', label: 'Reviews' },
   { id: 'faq', label: 'FAQ' },
   { id: 'book', label: 'Book' },
-  { id: 'roadmap', label: 'Roadmap' },
   { id: 'contact', label: 'Contact' },
 ]
 
 const SERVICES = [
-  { icon: '⌁', q: 'Hermes', title: 'Remote support', body: 'Screen-share diagnosis, software fixes, and configuration without a site visit.', points: ['Same-day slots', 'Secure remote tools', 'Clear time scope'] },
-  { icon: '⌂', q: 'Hephaestus', title: 'On-site support', body: 'Technician at your premises for hardware, networks, and hands-on recovery.', points: ['Call-out options', 'Home & small business', 'Status updates'] },
-  { icon: '▣', q: 'Athena', title: 'PC & laptop repair', body: 'Diagnostics, upgrades, malware cleanup, Windows rebuilds, and data care.', points: ['Parts quoted first', 'Honest prognosis', 'Handover checklist'] },
-  { icon: '⬡', q: 'Hestia', title: 'Business IT', body: 'Small-team support: backups, Microsoft 365, printers, workstation setup.', points: ['Flat packages', 'Retainer-friendly', 'Documented work'] },
-  { icon: '◎', q: 'Apollo', title: 'Data & recovery assist', body: 'Backup setup, drive health checks, and recovery assessment before files are lost.', points: ['No silent extras', 'Written findings', 'Secure handling'] },
-  { icon: '✦', q: 'Artemis', title: 'Scheduled visits', body: 'Book remote or on-site windows that fit your day — reminders before we arrive.', points: ['Calendar slots', 'Reschedule-friendly', 'WhatsApp confirm'] },
+  {
+    icon: '⌁',
+    title: 'Remote IT support',
+    blurb: 'Secure screen-share sessions for software faults, configuration, and urgent unblocking — without travel time.',
+    points: ['Same-day slots when available', 'Microsoft 365 & Windows help', 'Clear time boundaries before we start'],
+  },
+  {
+    icon: '⌂',
+    title: 'On-site technician',
+    blurb: 'Hands-on support at your home or office for hardware, cabling, Wi-Fi, and jobs that need a physical presence.',
+    points: ['Call-out options', 'Structured visit notes', 'WhatsApp status while we work'],
+  },
+  {
+    icon: '▣',
+    title: 'PC & laptop repair',
+    blurb: 'Diagnosis-first repairs: performance, storage, displays, power issues, malware, and clean Windows rebuilds.',
+    points: ['Parts quoted before install', 'Honest “repair vs replace” advice', 'Data caution on every job'],
+  },
+  {
+    icon: '⬡',
+    title: 'Small business IT',
+    blurb: 'Practical support for small teams — workstations, printers, backups, and day-to-day reliability.',
+    points: ['Package or hourly options', 'Documented changes', 'Priority for retainer clients'],
+  },
+  {
+    icon: '◎',
+    title: 'Data & backup assist',
+    blurb: 'Drive health checks, backup setup, and recovery assessment so files are not a gamble.',
+    points: ['Written findings', 'No silent extras', 'Secure handling of devices'],
+  },
+  {
+    icon: '✦',
+    title: 'Upgrades that matter',
+    blurb: 'SSD, memory, and tune-ups that you can feel — recommended only when they solve the real bottleneck.',
+    points: ['Before/after expectations', 'Compatible parts guidance', 'Transparent labour'],
+  },
 ]
 
 const PRICING = [
-  { title: 'Hourly', model: 'TIME & MATERIALS', body: 'When scope is unclear. You pay for real time; we pause and agree extras first.', tag: null },
-  { title: 'Flat rate', model: 'PACKAGE', body: 'One clear price for a defined job. Best when you want no surprises.', tag: 'POPULAR' },
-  { title: 'Ad-hoc', model: 'RATE CARD', body: 'Call-outs, diagnostics, and line items for once-off work.', tag: null },
+  {
+    title: 'Hourly',
+    model: 'TIME & MATERIALS',
+    hot: false,
+    body: 'Best when the fault is unclear. You pay for real work time; we stop and agree before scope expands.',
+    items: ['Ideal for diagnosis', 'Pause before extras', 'Full time visibility', 'Great for first-time clients'],
+  },
+  {
+    title: 'Flat rate',
+    model: 'FIXED PACKAGE',
+    hot: true,
+    body: 'One agreed price for a defined outcome. Peace of mind when you want the number locked in.',
+    items: ['Scope written upfront', 'No surprise labour drift', 'Popular for known jobs', 'Clear handover checklist'],
+  },
+  {
+    title: 'Ad-hoc rate card',
+    model: 'ITEMISED COD',
+    hot: false,
+    body: 'Call-outs, diagnostics, and line items for once-off work — ideal for COD-style handovers.',
+    items: ['Itemised quote', 'Pay on completion options', 'Mix remote + on-site', 'Parts listed separately'],
+  },
+]
+
+const STEPS = [
+  { n: '01', t: 'Tell us what broke', d: 'WhatsApp or the book form. Device, symptoms, and whether you prefer remote or on-site.' },
+  { n: '02', t: 'Agree the model', d: 'Hourly, flat, or ad-hoc. You approve the approach before parts or deep labour.' },
+  { n: '03', t: 'We diagnose & fix', d: 'Status updates while we work. No silent scope creep — we talk first.' },
+  { n: '04', t: 'Handover cleanly', d: 'You know what changed. Pay on agreed terms. Device released with confidence.' },
+]
+
+const REVIEWS = [
+  { q: 'Finally someone who explains the quote before touching parts. Remote session fixed our Outlook mess the same day.', a: 'Small office · Remote' },
+  { q: 'On-site visit was on time, laptop runs like new after the SSD upgrade, and WhatsApp updates made it stress-free.', a: 'Home user · On-site' },
+  { q: 'We keep them on call for the team. Straight talk, no upsell theatre — just machines that work.', a: 'Retail counter · Retainer-style' },
 ]
 
 const FAQS = [
-  { q: 'Do you support remote and on-site?', a: 'Yes. Remote for software and configuration; on-site for hardware, networks, and hands-on work.' },
-  { q: 'How do quotes work?', a: 'We use hourly, flat-rate, or ad-hoc models. You approve the approach before parts or deep work.' },
-  { q: 'Is COD available?', a: 'Many jobs can be structured COD-style — payment on completion/handover, with clear terms on the quote.' },
-  { q: 'What areas do you cover?', a: 'Remote nationwide where connectivity allows; on-site by arrangement in our service area.' },
-  { q: 'How do I book?', a: 'Use the Book page or WhatsApp 068 484 0123 with device, symptoms, and preferred mode.' },
-  { q: 'How do I pay?', a: 'EFT and cash are common. Terms are stated on your quote or invoice.' },
+  { q: 'Do you offer both remote and on-site support?', a: 'Yes. Remote is ideal for software and configuration. On-site is for hardware, networks, and anything that needs hands on the machine or premises.' },
+  { q: 'How do you price jobs?', a: 'Three models: hourly (time & materials), flat-rate packages, and ad-hoc rate cards. We recommend a model after we understand the fault — you approve before major work.' },
+  { q: 'Can I pay on completion (COD-style)?', a: 'Many jobs can be structured that way. Terms are written on your quote so there are no surprises at handover.' },
+  { q: 'Will you replace parts without asking?', a: 'No. Parts are quoted and approved first. If diagnosis changes the plan, we pause and talk.' },
+  { q: 'What should I prepare before remote support?', a: 'A stable internet link, admin access if possible, and a short note of error messages or when the issue started.' },
+  { q: 'Do you work with small businesses?', a: 'Yes — workstations, printers, backups, and practical day-to-day IT for small teams.' },
+  { q: 'How fast can you respond?', a: 'WhatsApp is the fastest channel (068 484 0123). Same-day remote slots are often available; on-site depends on schedule and area.' },
+  { q: 'Is my data safe?', a: 'We treat devices carefully, avoid unnecessary copies, and tell you before any destructive steps (like a clean OS install).' },
 ]
 
-const ROADMAP = [
-  { id: 'Q1', god: 'Athena', title: 'Craft & clarity', focus: 'Home, Services, About — sharper copy, trust blocks, service depth', pages: ['home', 'services', 'about'] },
-  { id: 'Q2', god: 'Hermes', title: 'Communication', focus: 'Contact, WhatsApp flows, response expectations, enquiry templates', pages: ['contact', 'book'] },
-  { id: 'Q3', god: 'Hephaestus', title: 'Technical depth', focus: 'Repair detail pages, on-site vs remote guides, process visuals', pages: ['services', 'process'] },
-  { id: 'Q4', god: 'Hestia', title: 'Trust & care', focus: 'FAQ, warranty language, privacy-minded policies, handover comfort', pages: ['faq', 'about'] },
-  { id: 'Q5', god: 'Apollo', title: 'Insight & proof', focus: 'Why-us metrics, transparent pricing education, case-style outcomes', pages: ['home', 'pricing'] },
-  { id: 'Q6', god: 'Artemis', title: 'Booking & rhythm', focus: 'Book page, schedule modes, reminder copy, reschedule path', pages: ['book', 'process'] },
-]
+function wa(text) {
+  return `https://wa.me/${WA}?text=${encodeURIComponent(text || `Hi PC REPAIR DEX — I need IT help.`)}`
+}
 
-function waUrl(text) {
-  return `https://wa.me/${WA}?text=${encodeURIComponent(text || 'Hi PC REPAIR DEX — I need IT help.')}`
+function CtaBand({ go }) {
+  return (
+    <div className="cta-band">
+      <div>
+        <h3>Ready when you are</h3>
+        <p>Message us on WhatsApp with the device and the symptom — we will recommend remote or on-site and a pricing model.</p>
+      </div>
+      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem' }}>
+        <a className="btn btn-wa btn-lg" href={wa()} target="_blank" rel="noreferrer">
+          WhatsApp {PHONE}
+        </a>
+        <button type="button" className="btn btn-primary btn-lg" onClick={() => go('book')}>
+          Book online
+        </button>
+      </div>
+    </div>
+  )
 }
 
 export default function App() {
-  const [page, setPage] = useState(() => {
-    const h = (typeof location !== 'undefined' && location.hash.replace('#', '')) || 'home'
-    return PAGES.some((p) => p.id === h) ? h : 'home'
+  const [page, setPage] = useState('home')
+  const [menu, setMenu] = useState(false)
+  const [form, setForm] = useState({
+    name: '',
+    phone: '',
+    service: 'Remote IT support',
+    mode: 'remote',
+    when: '',
+    message: '',
   })
-  const [form, setForm] = useState({ name: '', phone: '', service: 'Remote support', mode: 'remote', message: '', when: '' })
 
   useEffect(() => {
-    const onHash = () => {
-      const h = location.hash.replace('#', '') || 'home'
-      if (PAGES.some((p) => p.id === h)) setPage(h)
+    const fromHash = () => {
+      const h = (location.hash || '#home').slice(1)
+      if (NAV.some((n) => n.id === h)) setPage(h)
     }
-    window.addEventListener('hashchange', onHash)
-    return () => window.removeEventListener('hashchange', onHash)
+    fromHash()
+    window.addEventListener('hashchange', fromHash)
+    return () => window.removeEventListener('hashchange', fromHash)
   }, [])
 
   const go = (id) => {
     setPage(id)
+    setMenu(false)
     location.hash = id
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  const enquiryText = useMemo(() => {
-    return [
-      '*PC REPAIR DEX* — website enquiry',
-      `Name: ${form.name || '—'}`,
-      `Phone: ${form.phone || '—'}`,
-      `Service: ${form.service}`,
-      `Mode: ${form.mode}`,
-      form.when ? `Preferred time: ${form.when}` : null,
-      form.message ? `Message: ${form.message}` : null,
-    ]
-      .filter(Boolean)
-      .join('\n')
-  }, [form])
+  const enquiry = useMemo(
+    () =>
+      [
+        '*PC REPAIR DEX* — website booking',
+        `Name: ${form.name || '—'}`,
+        `Phone: ${form.phone || '—'}`,
+        `Service: ${form.service}`,
+        `Mode: ${form.mode}`,
+        form.when ? `Preferred: ${form.when}` : null,
+        form.message ? `Issue: ${form.message}` : null,
+      ]
+        .filter(Boolean)
+        .join('\n'),
+    [form]
+  )
 
   return (
     <>
+      <a className="skip" href="#main">
+        Skip to content
+      </a>
+
       <header className="nav">
-        <div className="container nav-inner">
-          <div className="brand" onClick={() => go('home')} role="link" tabIndex={0}>
-            <img src="/dex.svg" alt="" />
-            PC REPAIR <span>DEX</span>
-          </div>
-          <nav className="nav-links">
-            {PAGES.map((p) => (
-              <button key={p.id} type="button" className={page === p.id ? 'active' : p.id === 'roadmap' ? 'hide-sm' : ''} onClick={() => go(p.id)}>
-                {p.label}
+        <div className="wrap nav-row">
+          <button type="button" className="brand" onClick={() => go('home')}>
+            <img src="/dex.svg" alt="" width="38" height="38" />
+            PC REPAIR <em>DEX</em>
+          </button>
+
+          <nav className="nav-desk" aria-label="Primary">
+            {NAV.map((n) => (
+              <button key={n.id} type="button" className={page === n.id ? 'on' : ''} onClick={() => go(n.id)}>
+                {n.label}
               </button>
             ))}
-            <a className="btn btn-primary" href={waUrl()} target="_blank" rel="noreferrer">
-              WhatsApp
-            </a>
           </nav>
+
+          <div className="nav-cta">
+            <a className="btn btn-ghost btn-sm" href={`mailto:${EMAIL}`}>
+              Email
+            </a>
+            <a className="btn btn-wa btn-sm" href={wa()} target="_blank" rel="noreferrer">
+              {PHONE}
+            </a>
+            <button type="button" className="burger" aria-label="Menu" onClick={() => setMenu((v) => !v)}>
+              {menu ? 'Close' : 'Menu'}
+            </button>
+          </div>
+        </div>
+        <div className={`wrap mobile-panel${menu ? ' open' : ''}`}>
+          {NAV.map((n) => (
+            <button key={n.id} type="button" className={page === n.id ? 'on' : ''} onClick={() => go(n.id)}>
+              {n.label}
+            </button>
+          ))}
         </div>
       </header>
 
-      <main className="container page">
+      <main id="main" className="wrap page">
         {page === 'home' && (
-          <section>
-            <div className="eyebrow">
-              <span className="dot" /> Website · Mythos roadmap · not invoicing
-            </div>
-            <div className="hero-grid">
+          <>
+            <section className="hero">
               <div>
+                <div className="kicker">
+                  <span className="dot" /> Professional IT · Remote & on-site · South Africa
+                </div>
                 <h1>
-                  PC repair & IT support that feels <em>clear</em>, not chaotic.
+                  IT support that looks as sharp as it <span className="grad">works</span>
                 </h1>
                 <p className="lead">
-                  Remote or on-site. Honest quotes. Status you can understand. This site is the public face of{' '}
-                  <strong>PC REPAIR DEX</strong> — built page by page under a six-quarter Mythos plan.
+                  PC REPAIR DEX delivers remote and on-site support with quotes you can understand, status you can trust,
+                  and handovers that feel finished — not vague.
                 </p>
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.65rem', marginBottom: '1rem' }}>
-                  <button type="button" className="btn btn-primary" onClick={() => go('book')}>
+                <div className="hero-actions">
+                  <button type="button" className="btn btn-primary btn-lg" onClick={() => go('book')}>
                     Book support
                   </button>
-                  <a className="btn btn-wa" href={waUrl()} target="_blank" rel="noreferrer">
-                    {PHONE}
+                  <a className="btn btn-wa btn-lg" href={wa('Hi PC REPAIR DEX — I need help with my device.')} target="_blank" rel="noreferrer">
+                    WhatsApp {PHONE}
                   </a>
-                  <button type="button" className="btn btn-ghost" onClick={() => go('services')}>
-                    View services
+                  <button type="button" className="btn btn-ghost btn-lg" onClick={() => go('pricing')}>
+                    Pricing models
                   </button>
+                </div>
+                <div className="trust-row">
+                  <span className="pill">Transparent quotes</span>
+                  <span className="pill">Parts approved first</span>
+                  <span className="pill">WhatsApp updates</span>
+                  <span className="pill">COD-friendly options</span>
                 </div>
                 <div className="stats">
                   <div className="stat">
                     <b>Remote</b>
-                    <span>Screen-share help</span>
+                    <span>Screen-share sessions</span>
                   </div>
                   <div className="stat">
                     <b>On-site</b>
                     <span>Technician visits</span>
                   </div>
                   <div className="stat">
-                    <b>6 quarters</b>
-                    <span>Website Mythos plan</span>
+                    <b>Clear</b>
+                    <span>Hourly · flat · ad-hoc</span>
                   </div>
                 </div>
               </div>
+
               <div className="panel">
-                <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.75rem', fontFamily: 'var(--mono)', fontSize: '0.7rem', color: 'var(--muted)' }}>
-                  <span>dex://site</span>
-                  <span>
-                    <span className="dot" /> pages live
-                  </span>
-                </div>
                 <div className="terminal">
-                  <div className="info">$ mythos plan --target website</div>
-                  <div className="ok">✓ Q1 Athena → craft pages</div>
-                  <div className="ok">✓ Q2 Hermes → contact & WhatsApp</div>
-                  <div className="ok">✓ Q3 Hephaestus → technical depth</div>
-                  <div className="ok">✓ Q4 Hestia → trust & FAQ</div>
-                  <div className="ok">✓ Q5 Apollo → proof & pricing education</div>
-                  <div className="ok">✓ Q6 Artemis → booking rhythm</div>
-                  <div className="warn">→ Invoicing stays in SAID — not this site</div>
+                  <div className="h">
+                    <span>dex://operations</span>
+                    <span>
+                      <span className="dot" /> available
+                    </span>
+                  </div>
+                  <div className="info">$ intake --channel whatsapp</div>
+                  <div className="ok">✓ Fault captured · mode = remote | onsite</div>
+                  <div className="ok">✓ Pricing model recommended</div>
+                  <div className="warn">→ Parts never installed without approval</div>
+                  <div className="info">$ dispatch --update client</div>
+                  <div className="ok">✓ Status on WhatsApp · handover checklist</div>
+                  <div style={{ marginTop: '0.75rem', color: 'var(--faint)' }}>
+                    Prefer human talk? {PHONE} · {EMAIL}
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <div className="strip">
+              <div>
+                <strong>Same-day remote when slots open</strong>
+                <div>
+                  <span>Message the fault — we reply with next steps</span>
+                </div>
+              </div>
+              <div>
+                <strong>On-site by arrangement</strong>
+                <div>
+                  <span>Hardware · Wi-Fi · workstations</span>
+                </div>
+              </div>
+              <div>
+                <strong>Business-friendly</strong>
+                <div>
+                  <span>Small teams · printers · backups</span>
                 </div>
               </div>
             </div>
-            <div style={{ marginTop: '2.5rem' }}>
-              <h2 style={{ marginBottom: '0.75rem' }}>Popular services</h2>
+
+            <section className="block">
+              <div className="section-head">
+                <h2>Services clients actually need</h2>
+                <p>Not a bloated catalogue — focused work that gets people productive again.</p>
+              </div>
               <div className="grid-3">
                 {SERVICES.slice(0, 3).map((s) => (
                   <article key={s.title} className="card">
-                    <div className="mythos-tag">{s.q}</div>
                     <div className="icon">{s.icon}</div>
                     <h3>{s.title}</h3>
-                    <p>{s.body}</p>
+                    <p>{s.blurb}</p>
                   </article>
                 ))}
               </div>
-              <button type="button" className="btn btn-ghost" style={{ marginTop: '1rem' }} onClick={() => go('services')}>
-                All services →
+              <button type="button" className="btn btn-ghost mt" onClick={() => go('services')}>
+                Full service list →
               </button>
-            </div>
-          </section>
+            </section>
+
+            <section className="block">
+              <div className="section-head">
+                <h2>Pricing without the fog</h2>
+                <p>Pick a model that fits the job. Exact figures are quoted for your device and scope.</p>
+              </div>
+              <div className="grid-3">
+                {PRICING.map((p) => (
+                  <article key={p.title} className={`card price${p.hot ? ' hot' : ''}`}>
+                    {p.hot && <span className="badge">MOST CHOSEN</span>}
+                    <h3>{p.title}</h3>
+                    <div className="model">{p.model}</div>
+                    <p>{p.body}</p>
+                  </article>
+                ))}
+              </div>
+              <button type="button" className="btn btn-ghost mt" onClick={() => go('pricing')}>
+                Compare models →
+              </button>
+            </section>
+
+            <section className="block">
+              <div className="section-head">
+                <h2>What clients say</h2>
+                <p>Clarity beats hype — here is the tone we aim for every job.</p>
+              </div>
+              <div className="grid-3">
+                {REVIEWS.map((r) => (
+                  <blockquote key={r.a} className="quote">
+                    <p>“{r.q}”</p>
+                    <footer>
+                      <strong>{r.a}</strong>
+                    </footer>
+                  </blockquote>
+                ))}
+              </div>
+            </section>
+
+            <CtaBand go={go} />
+          </>
         )}
 
         {page === 'services' && (
-          <section>
-            <div className="mythos-tag">Hephaestus · Athena</div>
-            <h1>Services</h1>
-            <p className="lead">Every offering is written for humans first — what we do, when remote vs on-site, what you can expect.</p>
+          <>
+            <div className="kicker">
+              <span className="dot" /> Capabilities
+            </div>
+            <h1>
+              Services built for <span className="grad">real faults</span>
+            </h1>
+            <p className="lead">From a frozen laptop to a shop counter that cannot print — we match the method to the problem.</p>
             <div className="grid-3">
               {SERVICES.map((s) => (
                 <article key={s.title} className="card">
-                  <div className="mythos-tag">{s.q}</div>
                   <div className="icon">{s.icon}</div>
                   <h3>{s.title}</h3>
-                  <p>{s.body}</p>
+                  <p>{s.blurb}</p>
                   <ul>
                     {s.points.map((x) => (
                       <li key={x}>{x}</li>
@@ -209,90 +386,144 @@ export default function App() {
                 </article>
               ))}
             </div>
-          </section>
+            <CtaBand go={go} />
+          </>
         )}
 
         {page === 'pricing' && (
-          <section>
-            <div className="mythos-tag">Apollo · transparency</div>
-            <h1>Pricing models</h1>
-            <p className="lead">We educate first — pick a model that matches the job. Exact amounts are quoted for your device and scope.</p>
+          <>
+            <div className="kicker">
+              <span className="dot" /> Transparent models
+            </div>
+            <h1>
+              Pricing you can <span className="grad">defend</span>
+            </h1>
+            <p className="lead">Competitors hide the model. We lead with it — then quote the number for your specific job.</p>
             <div className="grid-3">
-              {PRICING.map((m) => (
-                <article key={m.title} className={`card price-card${m.tag ? ' featured' : ''}`}>
-                  {m.tag && <span className="tag">{m.tag}</span>}
-                  <h3>{m.title}</h3>
-                  <div className="model">{m.model}</div>
-                  <p>{m.body}</p>
+              {PRICING.map((p) => (
+                <article key={p.title} className={`card price${p.hot ? ' hot' : ''}`}>
+                  {p.hot && <span className="badge">MOST CHOSEN</span>}
+                  <h3>{p.title}</h3>
+                  <div className="model">{p.model}</div>
+                  <p>{p.body}</p>
+                  <ul className="list">
+                    {p.items.map((i) => (
+                      <li key={i}>{i}</li>
+                    ))}
+                  </ul>
                   <button type="button" className="btn btn-ghost" onClick={() => go('book')}>
-                    Ask for this model
+                    Request this model
                   </button>
                 </article>
               ))}
             </div>
-          </section>
+            <CtaBand go={go} />
+          </>
         )}
 
         {page === 'process' && (
-          <section>
-            <div className="mythos-tag">Hephaestus · Artemis</div>
-            <h1>How a job runs</h1>
-            <p className="lead">A simple path from first message to handover — without mystery fees.</p>
-            <div className="grid-2">
-              {[
-                ['01', 'Tell us the fault', 'WhatsApp or Book form. Device, symptoms, remote or on-site preference.'],
-                ['02', 'Agree the model', 'Hourly, flat, or ad-hoc. Approve before parts or deep work.'],
-                ['03', 'Work & updates', 'Clear status while we diagnose and fix.'],
-                ['04', 'Handover', 'Pay on agreed terms. You leave knowing what changed.'],
-              ].map(([n, t, b]) => (
-                <article key={n} className="card">
-                  <div className="mono" style={{ color: 'var(--amber)', fontSize: '0.8rem' }}>
-                    {n}
-                  </div>
-                  <h3>{t}</h3>
-                  <p>{b}</p>
+          <>
+            <div className="kicker">
+              <span className="dot" /> Workflow
+            </div>
+            <h1>
+              How a job <span className="grad">actually</span> runs
+            </h1>
+            <p className="lead">Four steps. No mystery fees. No radio silence.</p>
+            <div className="steps">
+              {STEPS.map((s) => (
+                <article key={s.n} className="step">
+                  <div className="n">{s.n}</div>
+                  <h3>{s.t}</h3>
+                  <p style={{ color: 'var(--muted)', fontSize: '0.9rem' }}>{s.d}</p>
                 </article>
               ))}
             </div>
-          </section>
+            <CtaBand go={go} />
+          </>
         )}
 
         {page === 'about' && (
-          <section>
-            <div className="mythos-tag">Athena · Hestia</div>
-            <h1>About PC REPAIR DEX</h1>
+          <>
+            <div className="kicker">
+              <span className="dot" /> PC REPAIR DEX
+            </div>
+            <h1>
+              Built for people who are <span className="grad">done</span> with vague tech help
+            </h1>
             <p className="lead">
-              We are an IT support and PC repair practice focused on clarity: remote when it saves you time, on-site when
-              hands-on is required, and quotes that match the work.
+              We are a professional IT support and PC repair practice. Remote when it is smarter. On-site when it must be.
+              Quotes that name the model before the work begins.
             </p>
             <div className="grid-2">
               <article className="card">
-                <h3>What we stand for</h3>
+                <h3>Operating principles</h3>
                 <ul>
                   <li>Explain before you spend</li>
-                  <li>Remote / on-site chosen deliberately</li>
-                  <li>No silent extras on parts</li>
-                  <li>Handover you can trust</li>
+                  <li>Approve parts before install</li>
+                  <li>Update on WhatsApp when it matters</li>
+                  <li>Handover with a clear outcome</li>
+                  <li>Respect data and downtime</li>
                 </ul>
               </article>
               <article className="card">
                 <h3>Contact</h3>
-                <p>
+                <p style={{ marginBottom: '0.75rem' }}>
                   WhatsApp <strong>{PHONE}</strong>
                   <br />
                   Email <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
                 </p>
-                <p style={{ marginTop: '0.75rem' }}>This website is updated under a six-quarter Mythos roadmap (website only).</p>
+                <p style={{ color: 'var(--muted)' }}>
+                  Tell us the device, the symptom, and whether you are home or at work — we will recommend the path.
+                </p>
               </article>
             </div>
-          </section>
+            <CtaBand go={go} />
+          </>
+        )}
+
+        {page === 'reviews' && (
+          <>
+            <div className="kicker">
+              <span className="dot" /> Social proof
+            </div>
+            <h1>
+              Outcomes over <span className="grad">hype</span>
+            </h1>
+            <p className="lead">Representative feedback from the standard we hold ourselves to on every job.</p>
+            <div className="grid-3">
+              {REVIEWS.map((r) => (
+                <blockquote key={r.a} className="quote">
+                  <p>“{r.q}”</p>
+                  <footer>
+                    <strong>{r.a}</strong>
+                  </footer>
+                </blockquote>
+              ))}
+            </div>
+            <div className="grid-3 mt">
+              {['Clear quotes', 'On-time remote slots', 'Respect for data', 'No silent parts', 'Business-aware', 'Human WhatsApp'].map(
+                (t) => (
+                  <div key={t} className="card">
+                    <h3>{t}</h3>
+                    <p>Non-negotiable in how PC REPAIR DEX shows up.</p>
+                  </div>
+                )
+              )}
+            </div>
+            <CtaBand go={go} />
+          </>
         )}
 
         {page === 'faq' && (
-          <section>
-            <div className="mythos-tag">Hestia · trust</div>
-            <h1>FAQ</h1>
-            <p className="lead">Straight answers so you can decide faster.</p>
+          <>
+            <div className="kicker">
+              <span className="dot" /> Answers
+            </div>
+            <h1>
+              FAQ — <span className="grad">straight</span>
+            </h1>
+            <p className="lead">Everything people ask before they message us.</p>
             <div className="faq">
               {FAQS.map((f) => (
                 <details key={f.q}>
@@ -301,29 +532,34 @@ export default function App() {
                 </details>
               ))}
             </div>
-          </section>
+            <CtaBand go={go} />
+          </>
         )}
 
         {page === 'book' && (
-          <section>
-            <div className="mythos-tag">Artemis · schedule</div>
-            <h1>Book support</h1>
-            <p className="lead">Tell us what you need. We continue on WhatsApp with {PHONE}.</p>
-            <div className="contact-grid">
+          <>
+            <div className="kicker">
+              <span className="dot" /> Booking
+            </div>
+            <h1>
+              Book <span className="grad">support</span>
+            </h1>
+            <p className="lead">Submit the form — it opens WhatsApp with your details ready for {PHONE}.</p>
+            <div className="grid-2">
               <form
                 className="form panel"
                 onSubmit={(e) => {
                   e.preventDefault()
-                  window.open(waUrl(enquiryText), '_blank', 'noopener')
+                  window.open(wa(enquiry), '_blank', 'noopener')
                 }}
               >
                 <label>
-                  Name
-                  <input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} />
+                  Full name
+                  <input required value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your name" />
                 </label>
                 <label>
-                  Phone
-                  <input required value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="08x…" />
+                  Phone / WhatsApp
+                  <input required value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="08x xxx xxxx" />
                 </label>
                 <label>
                   Service
@@ -334,123 +570,144 @@ export default function App() {
                   </select>
                 </label>
                 <label>
-                  Mode
+                  Preferred mode
                   <select value={form.mode} onChange={(e) => setForm({ ...form, mode: e.target.value })}>
                     <option value="remote">Remote</option>
                     <option value="onsite">On-site</option>
-                    <option value="either">Either</option>
+                    <option value="either">Either — you advise</option>
                   </select>
                 </label>
                 <label>
                   Preferred time (optional)
-                  <input value={form.when} onChange={(e) => setForm({ ...form, when: e.target.value })} placeholder="e.g. tomorrow afternoon" />
+                  <input value={form.when} onChange={(e) => setForm({ ...form, when: e.target.value })} placeholder="e.g. Today after 16:00" />
                 </label>
                 <label>
-                  What is wrong?
-                  <textarea rows={4} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
+                  Describe the issue
+                  <textarea required rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Device, error messages, when it started…" />
                 </label>
-                <button type="submit" className="btn btn-primary">
+                <button type="submit" className="btn btn-primary btn-lg">
                   Continue on WhatsApp
                 </button>
               </form>
-              <div>
-                <div className="contact-item">
+              <div className="contact-side">
+                <div className="citem">
                   <b>WhatsApp</b>
-                  <a href={waUrl()} target="_blank" rel="noreferrer">
+                  <a href={wa()} target="_blank" rel="noreferrer">
                     {PHONE}
                   </a>
                 </div>
-                <div className="contact-item">
+                <div className="citem">
                   <b>Email</b>
                   <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
                 </div>
-                <div className="contact-item">
-                  <b>Tip</b>
-                  <span>Include device model and whether the issue is software or hardware.</span>
+                <div className="citem">
+                  <b>Tip for faster help</b>
+                  <span>Send the model, OS, and whether the issue is software or hardware. Photos of error screens help.</span>
+                </div>
+                <div className="citem">
+                  <b>Emergency tone</b>
+                  <span>If the business is down, say so in the first line — we prioritise unblock work when we can.</span>
                 </div>
               </div>
             </div>
-          </section>
-        )}
-
-        {page === 'roadmap' && (
-          <section>
-            <div className="mythos-tag">Website only · 6 quarters</div>
-            <h1>Mythos website roadmap</h1>
-            <p className="lead">
-              Six quarters aimed at <strong>this website’s pages</strong> — not invoicing. Each quarter targets roughly a
-              large batch of page, content, UX, SEO, and trust improvements (planned at scale; shipped iteratively).
-            </p>
-            {ROADMAP.map((q) => (
-              <div key={q.id} className="roadmap-q">
-                <h3>
-                  {q.id} · {q.god} — {q.title}
-                </h3>
-                <p>
-                  {q.focus}
-                  <br />
-                  Pages: {q.pages.join(', ')} · Target intensity: ~500 improvement items in the full plan
-                </p>
-                <button type="button" className="btn btn-ghost" style={{ marginTop: '0.5rem' }} onClick={() => go(q.pages[0])}>
-                  Open {q.pages[0]}
-                </button>
-              </div>
-            ))}
-            <article className="card" style={{ marginTop: '1rem' }}>
-              <h3>Out of scope on this site</h3>
-              <p>Invoicing, billing engines, and back-office ops stay in SAID. This repo is public web pages only.</p>
-            </article>
-          </section>
+          </>
         )}
 
         {page === 'contact' && (
-          <section>
-            <div className="mythos-tag">Hermes · reach us</div>
-            <h1>Contact</h1>
-            <p className="lead">Fastest reply is WhatsApp. Email works for longer write-ups.</p>
+          <>
+            <div className="kicker">
+              <span className="dot" /> Reach us
+            </div>
+            <h1>
+              Contact <span className="grad">PC REPAIR DEX</span>
+            </h1>
+            <p className="lead">WhatsApp is fastest. Email works for longer briefs and attachments.</p>
             <div className="grid-2">
-              <div className="contact-item">
+              <div className="citem">
                 <b>WhatsApp</b>
-                <a href={waUrl()} target="_blank" rel="noreferrer">
+                <a href={wa()} target="_blank" rel="noreferrer">
                   {PHONE}
                 </a>
+                <div style={{ marginTop: '0.75rem' }}>
+                  <a className="btn btn-wa" href={wa()} target="_blank" rel="noreferrer">
+                    Open chat
+                  </a>
+                </div>
               </div>
-              <div className="contact-item">
+              <div className="citem">
                 <b>Email</b>
                 <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                <div style={{ marginTop: '0.75rem' }}>
+                  <a className="btn btn-ghost" href={`mailto:${EMAIL}?subject=IT%20support%20request`}>
+                    Compose email
+                  </a>
+                </div>
               </div>
-              <div className="contact-item">
-                <b>Book a slot</b>
-                <button type="button" className="btn btn-ghost" onClick={() => go('book')}>
-                  Open book form
-                </button>
+              <div className="citem">
+                <b>Book a structured request</b>
+                <span>Use the booking form so we get mode, service, and symptoms in one shot.</span>
+                <div style={{ marginTop: '0.75rem' }}>
+                  <button type="button" className="btn btn-primary" onClick={() => go('book')}>
+                    Open book form
+                  </button>
+                </div>
               </div>
-              <div className="contact-item">
-                <b>Services</b>
-                <button type="button" className="btn btn-ghost" onClick={() => go('services')}>
-                  Browse services
-                </button>
+              <div className="citem">
+                <b>Hours mindset</b>
+                <span>We aim to answer WhatsApp quickly during the working day. Complex on-site work is scheduled deliberately.</span>
               </div>
             </div>
-          </section>
+          </>
         )}
       </main>
 
-      <footer>
-        <div className="container footer-inner">
+      <footer className="footer">
+        <div className="wrap footer-grid">
           <div>
-            <strong style={{ color: 'var(--text)' }}>PC REPAIR DEX</strong>
-            <div>
-              {PHONE} · {EMAIL}
-            </div>
+            <button type="button" className="brand" onClick={() => go('home')} style={{ marginBottom: '0.75rem' }}>
+              <img src="/dex.svg" alt="" width="32" height="32" />
+              PC REPAIR <em>DEX</em>
+            </button>
+            <p>Professional remote & on-site IT support and PC repair. Clear models. Human updates.</p>
+            <p style={{ marginTop: '0.75rem' }}>
+              {PHONE}
+              <br />
+              {EMAIL}
+            </p>
           </div>
-          <div className="footer-links">
-            {PAGES.map((p) => (
-              <button key={p.id} type="button" onClick={() => go(p.id)}>
-                {p.label}
+          <div>
+            <h4>Explore</h4>
+            {NAV.slice(0, 5).map((n) => (
+              <button key={n.id} type="button" onClick={() => go(n.id)}>
+                {n.label}
               </button>
             ))}
           </div>
+          <div>
+            <h4>Help</h4>
+            {NAV.slice(5).map((n) => (
+              <button key={n.id} type="button" onClick={() => go(n.id)}>
+                {n.label}
+              </button>
+            ))}
+          </div>
+          <div>
+            <h4>Actions</h4>
+            <a href={wa()} target="_blank" rel="noreferrer">
+              WhatsApp us
+            </a>
+            <a href={`mailto:${EMAIL}`}>Email us</a>
+            <button type="button" onClick={() => go('book')}>
+              Book support
+            </button>
+            <button type="button" onClick={() => go('pricing')}>
+              Pricing models
+            </button>
+          </div>
+        </div>
+        <div className="wrap footer-bottom">
+          <span>© {new Date().getFullYear()} PC REPAIR DEX · All rights reserved</span>
+          <span className="mono">068 484 0123 · pcrepairdex@gmail.com</span>
         </div>
       </footer>
     </>

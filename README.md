@@ -1,22 +1,30 @@
-# PC REPAIR DEX (website)
+# PC REPAIR DEX — Professional website
 
-Public multi-page site for **PC REPAIR DEX**.
+Premium multi-page marketing site for **PC REPAIR DEX**.
 
-- WhatsApp: **068 484 0123**
-- Email: **pcrepairdex@gmail.com**
-- Mythos roadmap: **website pages only** — see `docs/MYTHOS_WEBSITE_ROADMAP.md`
-- **Not** an invoicing app (that stays in [SAID](https://github.com/dexter187gold/said))
+**Contact:** WhatsApp [068 484 0123](https://wa.me/27684840123) · [pcrepairdex@gmail.com](mailto:pcrepairdex@gmail.com)
 
 ## Pages
 
-Home · Services · Pricing · Process · About · FAQ · Book · Roadmap · Contact
+Home · Services · Pricing · How it works · About · Reviews · FAQ · Book · Contact
+
+## Design system
+
+- Dark technical 2026 UI (Instrument Sans + JetBrains Mono)
+- Sticky nav + mobile drawer
+- Trust strip, stats, terminal panel, pricing cards, timeline, testimonials, FAQ accordion
+- Repeated CTA bands, multi-column footer
+- SEO meta, skip link, focus states
+- Cloudflare SPA via `wrangler.jsonc` (no broken `_redirects`)
 
 ## Deploy (Cloudflare)
 
-- Build: `npm run build` or `bun run build`
-- Output: `dist`
-- SPA: `wrangler.jsonc` → `assets.not_found_handling: single-page-application`
-- **Do not** add `/* /index.html` in `_redirects` (causes infinite loop)
+```text
+Build:   npm run build   (or bun run build)
+Output:  dist
+```
+
+Do **not** use `/* /index.html 200` in `_redirects`.
 
 ## Local
 
