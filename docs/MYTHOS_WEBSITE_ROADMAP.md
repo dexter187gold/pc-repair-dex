@@ -1,33 +1,27 @@
-# PC REPAIR DEX — Mythos website roadmap (not invoicing)
+# PC REPAIR DEX — 10-quarter Mythos (website only)
 
-**Scope:** this website only (pages, content, UX, SEO, trust, booking).  
-**Out of scope:** SAID invoicing, payments, tickets backend.
+**Scope:** marketing website, conversion, brand, shop placeholders.  
+**Out of scope:** SAID invoicing engines.
 
-Each quarter is planned at **~500 improvement items** (copy variants, a11y, SEO meta, section layouts, CTAs, mobile, trust, performance). Shipped iteratively; this doc is the chart.
+| Q | God | Theme |
+|---|-----|--------|
+| 1 | Athena | Craft & clarity |
+| 2 | Hermes | Reach & booking |
+| 3 | Hephaestus | Technical depth |
+| 4 | Hestia | Trust |
+| 5 | Apollo | Proof & pricing |
+| 6 | Artemis | Booking rhythm |
+| 7 | Poseidon | Catalog / shop depth |
+| 8 | Ares | Speed & conversion |
+| 9 | Demeter | Growth / reseller |
+| 10 | Zeus | Authority polish |
 
-| Quarter | God | Primary pages | Theme |
-|---------|-----|---------------|--------|
-| Q1 | Athena | Home, Services, About | Craft & clarity |
-| Q2 | Hermes | Contact, Book | Communication |
-| Q3 | Hephaestus | Services, Process | Technical depth |
-| Q4 | Hestia | FAQ, About | Trust & care |
-| Q5 | Apollo | Home, Pricing | Insight & proof |
-| Q6 | Artemis | Book, Process | Booking & rhythm |
+Programme intensity: ~500 planned improvement items per quarter across copy, UX, SEO, a11y, mobile, CTAs, service pages, and shop readiness (~5000 in the full 10-quarter plan).
 
-## Example item classes (× many = 500/quarter)
+## Conversion research applied
 
-- Section headlines / subheads / microcopy
-- Mobile spacing & tap targets
-- Meta titles & descriptions per page
-- Internal links between pages
-- WhatsApp prefilled templates per service
-- FAQ entries & schema-ready text
-- Trust lines (warranty language, COD clarity)
-- Performance (image weight, font loading)
-- Accessibility (labels, focus, contrast)
-- CTA placement tests (Book / WhatsApp / Email)
-
-## Contact (fixed)
-
-- WhatsApp: 068 484 0123 (`27684840123`)
-- Email: pcrepairdex@gmail.com
+- Answer in first screen: what you do, how to reach you, trust, next step
+- Sticky WhatsApp + tap-to-call
+- Booking form above the fold (home) and dedicated Book page
+- Service taxonomy for PC, phone, FRP/MDM, electronics
+- Shop page ready for reseller catalog
