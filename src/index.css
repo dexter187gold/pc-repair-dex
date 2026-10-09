@@ -9,6 +9,8 @@
   --muted: #b8c4d9;
   --dim: #8fa0ba;
   --sky: #5ec8f8;
+  --gold: #e0b33a;
+  --gold-hi: #f0c14a;
   --sky2: #3baee6;
   --green: #3dd68c;
   --amber: #e8b84a;
@@ -56,10 +58,6 @@ img { max-width: 100%; display: block; }
   border-radius: 12px; transition: background 0.15s;
 }
 .brand-lockup:hover { background: rgba(255,255,255,0.03); }
-.brand-mark {
-  width: 44px; height: 44px; border-radius: 11px; flex-shrink: 0;
-  box-shadow: 0 0 0 1px rgba(94, 200, 248, 0.25), 0 8px 24px rgba(0,0,0,0.35);
-}
 .brand-text { display: flex; flex-direction: column; gap: 0.1rem; min-width: 0; }
 .brand-name {
   font-family: var(--display);
@@ -71,8 +69,15 @@ img { max-width: 100%; display: block; }
 }
 .brand-name em {
   font-style: normal;
-  color: var(--sky);
+  color: var(--gold-hi);
   font-weight: 700;
+}
+.brand-mark {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 0 0 1px rgba(212, 160, 23, 0.35), 0 6px 20px rgba(0,0,0,0.4);
 }
 .brand-tag {
   font-size: 0.68rem;

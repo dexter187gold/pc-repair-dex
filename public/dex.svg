@@ -1,13 +1,43 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 80" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="PC REPAIRDEX">
   <defs>
-    <linearGradient id="g" x1="8" y1="8" x2="72" y2="72" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#38BDF8"/>
-      <stop offset="1" stop-color="#0EA5E9"/>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE9A8"/>
+      <stop offset="35%" stop-color="#F0C14A"/>
+      <stop offset="70%" stop-color="#D4A017"/>
+      <stop offset="100%" stop-color="#B8860B"/>
     </linearGradient>
+    <linearGradient id="goldFlat" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#F8E7A0"/>
+      <stop offset="50%" stop-color="#E0B33A"/>
+      <stop offset="100%" stop-color="#C49A1A"/>
+    </linearGradient>
+    <radialGradient id="face" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#1a1a1a"/>
+      <stop offset="100%" stop-color="#050505"/>
+    </radialGradient>
   </defs>
-  <rect width="80" height="80" rx="18" fill="#0B1220"/>
-  <rect x="3" y="3" width="74" height="74" rx="16" stroke="url(#g)" stroke-width="2"/>
-  <path d="M24 28h12c8 0 13 4.5 13 12s-5 12-13 12H24V28z" stroke="#E2E8F0" stroke-width="3.2" fill="none" stroke-linejoin="round"/>
-  <path d="M36 40h22" stroke="#38BDF8" stroke-width="3.2" stroke-linecap="round"/>
-  <circle cx="54" cy="40" r="3.2" fill="#FBBF24"/>
+  <!-- Outer rings -->
+  <circle cx="256" cy="256" r="248" fill="#050505"/>
+  <circle cx="256" cy="256" r="248" fill="none" stroke="url(#gold)" stroke-width="12"/>
+  <circle cx="256" cy="256" r="232" fill="none" stroke="url(#gold)" stroke-width="3" opacity="0.85"/>
+  <circle cx="256" cy="256" r="220" fill="url(#face)"/>
+  <!-- Icon: three nodes -->
+  <g fill="none" stroke="url(#goldFlat)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M256 118c-42 28-70 48-78 78"/>
+    <path d="M256 118c42 28 70 48 78 78"/>
+    <path d="M178 196c20 36 40 58 78 70"/>
+    <path d="M334 196c-20 36-40 58-78 70"/>
+  </g>
+  <circle cx="256" cy="118" r="18" fill="url(#goldFlat)"/>
+  <circle cx="178" cy="196" r="18" fill="url(#goldFlat)"/>
+  <circle cx="334" cy="196" r="18" fill="url(#goldFlat)"/>
+  <path d="M210 250 Q256 278 302 250" fill="none" stroke="url(#goldFlat)" stroke-width="12" stroke-linecap="round"/>
+  <!-- Divider -->
+  <line x1="96" y1="300" x2="416" y2="300" stroke="url(#gold)" stroke-width="3" opacity="0.9"/>
+  <!-- Wordmark -->
+  <text x="256" y="360" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="52" font-weight="800" fill="url(#goldFlat)" letter-spacing="1">PC REPAIRDEX</text>
+  <!-- Tagline -->
+  <line x1="130" y1="390" x2="165" y2="390" stroke="url(#gold)" stroke-width="2"/>
+  <line x1="347" y1="390" x2="382" y2="390" stroke="url(#gold)" stroke-width="2"/>
+  <text x="256" y="396" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="600" fill="url(#goldFlat)" letter-spacing="3">IT'S MORE THAN JUST REPAIRS</text>
 </svg>

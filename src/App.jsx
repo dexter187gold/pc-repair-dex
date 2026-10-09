@@ -74,11 +74,11 @@ function wa(text) {
 
 function BrandLockup({ onClick, compact }) {
   return (
-    <button type="button" className="brand-lockup" onClick={onClick} aria-label="PC REPAIR DEX home">
-      <img className="brand-mark" src="/dex.svg" alt="" width={44} height={44} />
+    <button type="button" className="brand-lockup" onClick={onClick} aria-label="PC REPAIRDEX home">
+      <img className="brand-mark" src="/dex-mark.svg" alt="" width={48} height={48} />
       <span className="brand-text">
-        <span className="brand-name">PC REPAIR <em>DEX</em></span>
-        {!compact && <span className="brand-tag">Professional device &amp; IT services</span>}
+        <span className="brand-name">PC REPAIR<em>DEX</em></span>
+        {!compact && <span className="brand-tag">It&apos;s more than just repairs</span>}
       </span>
     </button>
   )
@@ -498,7 +498,7 @@ export default function App() {
         {page === 'about' && (
           <>
             <p className="eyebrow">Company</p>
-            <h1>About PC REPAIR <span style={{ color: 'var(--sky)' }}>DEX</span></h1>
+            <h1>About <span style={{ color: 'var(--gold, #e0b33a)' }}>PC REPAIRDEX</span></h1>
             <p className="lead">
               A professional device and IT service company — computers, phones, electronics — with a client-first booking
               path and optional SA Invoice products for shops.
@@ -570,10 +570,10 @@ export default function App() {
         <div className="wrap footer-grid">
           <div>
             <div className="footer-brand">
-              <img src="/dex.svg" alt="" width="32" height="32" />
+              <img src="/dex-mark.svg" alt="" width="36" height="36" />
               <div>
-                <strong>PC REPAIR DEX</strong>
-                <div className="dim" style={{ fontSize: '0.75rem' }}>Professional device &amp; IT services</div>
+                <strong>PC REPAIRDEX</strong>
+                <div className="dim" style={{ fontSize: '0.75rem' }}>It&apos;s more than just repairs</div>
               </div>
             </div>
             <p>Client-first repair and IT. Shop coming soon. SA Invoice for business owners.</p>
@@ -601,7 +601,7 @@ export default function App() {
           </div>
         </div>
         <div className="wrap footer-bottom">
-          <span>© {new Date().getFullYear()} PC REPAIR DEX</span>
+          <span>© {new Date().getFullYear()} PC REPAIRDEX</span>
           <span>{PHONE} · {EMAIL}</span>
         </div>
       </footer>
