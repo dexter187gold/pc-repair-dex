@@ -1,28 +1,25 @@
-# PC REPAIR DEX — Premium website
+# PC REPAIR DEX website
 
-**Brand:** Computers · Phones · Electronics · IT · Reseller shop path  
+Readable, organised multi-page site.
 
-**Contact:** WhatsApp [068 484 0123](https://wa.me/27684840123) · Call · [pcrepairdex@gmail.com](mailto:pcrepairdex@gmail.com)
+**Contact:** 068 484 0123 · pcrepairdex@gmail.com
 
-## Pages
+## Page roles (no duplicate content)
 
-Home · Services · Phones & FRP · Shop · Pricing · Process · About · FAQ · Book · Roadmap · Contact
+| Page | Owns |
+|------|------|
+| Home | Intro, short service map, SA Invoice teasers, shop teaser |
+| Services | Full service groups only |
+| Shop | **Coming soon** |
+| Pricing | Three models only |
+| Book | **Only** full booking form |
+| SA Invoice | Desk + Pro product page |
+| About / FAQ / Contact | Brand, answers, channels (no second form) |
 
-## Highlights
+## Typography
 
-- Conversion-first hero (research-backed: clarity, phone, trust, CTA)
-- Full booking form (device, service, mode, symptoms → WhatsApp)
-- Smartphone / FRP / MDM service lines (honest limits stated)
-- Electronics + PC + remote/on-site IT
-- Shop catalog placeholders for reseller products
-- Floating WhatsApp + sticky call/chat
-- 10-quarter Mythos roadmap (Poseidon, Ares, Demeter, Zeus added)
+Source Serif 4 (headings) + Source Sans 3 (body), larger base size, higher contrast muted text, calmer layout.
 
-## Deploy (Cloudflare)
+## Deploy
 
-```text
-Build:  npm run build
-Output: dist
-```
-
-SPA via `wrangler.jsonc` — do not add infinite-loop `_redirects`.
+`npm run build` → `dist` · Cloudflare SPA via wrangler.jsonc
